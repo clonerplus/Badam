@@ -1,0 +1,24 @@
+# Use an official Python runtime as a parent image
+FROM python:latest
+
+# Set environment variables (optional)
+ENV APP_NAME flask
+ENV PORT 5000
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the requirements file into the container at /app
+COPY python/flask_requirements.txt /app/
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r flask_requirements.txt
+
+# Copy the current directory contents into the container at /app
+COPY python/flask_endpoint.py python/dto/* /app/
+
+# Expose port 8000 for the FastAPI application
+EXPOSE ${PORT}
+
+# Command to run your FastAPI application
+CMD ["python", "flask_endpoint.py"]

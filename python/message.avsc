@@ -1,0 +1,22 @@
+{
+    "type": "record",
+    "name": "message",
+    "fields": [
+        {
+            "name": "object_type",
+            "type": {"type": "enum", "name": "Type", "symbols": ["MSG"]}
+        },
+        {
+            "name": "sender_id",
+            "type": "string"
+        },
+        {
+            "name": "body",
+            "type": "string"
+        },
+        {
+            "name": "send_time",
+            "type": "string"
+        }
+    ]
+}
