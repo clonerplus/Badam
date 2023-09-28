@@ -1,3 +1,4 @@
+# currently redundant used if python consumer is required
 from kafka import KafkaConsumer
 from avro.datafile import DataFileReader
 from avro.io import DatumReader

@@ -6,7 +6,11 @@ export default avro.Type.forSchema({
   fields: [
     {
       name: 'object_type',
-      type: {type: 'enum', name: 'Type', symbols: ['MSG']}
+      type: { type: 'enum', name: 'Type', symbols: ['MSG'] }
+    },
+    {
+      name: 'group_id',
+      type: 'string'
     },
     {
       name: 'sender_id',

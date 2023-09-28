@@ -11,7 +11,8 @@ def sqlalchemy_init(engine):
     class Message(base):
         __tablename__ = "chatroom"
 
-        msg_id = Column(Integer, primary_key=True, index=True)
+        id = Column(Integer, primary_key=True, index=True)
+        group_id = Column(Integer, index=True)
         order_num = Column(Integer)
         sender_id = Column(Integer)
         body = Column(String)

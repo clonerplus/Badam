@@ -19,5 +19,5 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('message/<int:msg_id>/', views.read_message, name='read_message')
+    path('message/<int:group_id>/', views.read_message, name='read_message')
 ]

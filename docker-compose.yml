@@ -1,25 +1,25 @@
 version: "3"
 services:
-#  zookeeper:
-#    image: 'bitnami/zookeeper:latest'
-#    container_name: 'zookeeper'
-#    ports:
-#      - '2181:2181'
-#    environment:
-#      - ALLOW_ANONYMOUS_LOGIN=yes
-#  kafka:
-#    image: 'bitnami/kafka:latest'
-#    container_name: 'kafka'
-#    ports:
-#      - '9092:9092'
-#    environment:
-#      - KAFKA_BROKER_ID=1
-#      - KAFKA_LISTENERS=PLAINTEXT://:9092
-#      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
-#      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-#      - ALLOW_PLAINTEXT_LISTENER=yes
-#    depends_on:
-#      - zookeeper
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    container_name: 'zookeeper'
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    image: 'bitnami/kafka:latest'
+    container_name: 'kafka'
+    ports:
+      - '9092:9092'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
   postgres:
     image: 'postgres:latest'
     container_name: 'postgres'
@@ -27,22 +27,22 @@ services:
       POSTGRES_PASSWORD: 1234
     ports:
       - '5432:5432'
-#  producer:
-#    image: 'nodejs-producer:latest'
-#    container_name: 'producer-nodejs'
-#    ports:
-#      - '8080:8080'
-#    depends_on:
-#      - kafka
-#      - postgres
-#  consumer:
-#    image: 'nodejs-consumer:latest'
-#    container_name: 'consumer-nodejs'
-#    ports:
-#      - '8081:8081'
-#    depends_on:
-#      - kafka
-#      - postgres
+  producer:
+    image: 'nodejs-producer:latest'
+    container_name: 'producer-nodejs'
+    ports:
+      - '8080:8080'
+    depends_on:
+      - kafka
+      - postgres
+  consumer:
+    image: 'nodejs-consumer:latest'
+    container_name: 'consumer-nodejs'
+    ports:
+      - '8081:8081'
+    depends_on:
+      - kafka
+      - postgres
   fast_api:
     image: 'fast-api:latest'
     container_name: 'fast-api'

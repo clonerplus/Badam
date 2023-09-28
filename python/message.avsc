@@ -1,3 +1,4 @@
+// currently redundant used for communication between producer of node and consumer of python
 {
     "type": "record",
     "name": "message",

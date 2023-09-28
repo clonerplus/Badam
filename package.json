@@ -1,17 +1,18 @@
 {
   "dependencies": {
     "avsc": "^5.7.7",
+    "express": "^4.18.2",
     "kafkajs": "^2.2.4",
     "node-rdkafka": "^2.17.0",
     "pg": "^8.11.3",
     "sqlite3": "^5.1.6"
   },
-  "name": "fast-api",
+  "name": "badam_project",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start:producer": "node node/producer/Producer.js",
+    "start:producer": "node node/producer/ClientMessageCatchEndpoint.js",
     "start:consumer": "node node/consumer/Consumer.js"
   },
   "author": "",
